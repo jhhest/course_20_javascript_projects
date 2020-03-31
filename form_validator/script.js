@@ -20,25 +20,35 @@ function showSucces(input) {
 
 // Check email is valid with a regular expression.
 function isValidEmail(email) {
-  const re = 
-  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
+}
+
+function checkRequired(inputArr) {
+  inputArr.forEach(function(input) {
+    if (input.value.trim() === "") {
+      showError(input, "Is required");
+    } else {
+      showSucces(input);
+    }
+  });
 }
 
 // Event Listeners
 form.addEventListener("submit", function(e) {
   e.preventDefault();
+  checkRequired([username, email, password, password2]);
 
-  if (username.value === "") {
-    showError(username, "username is required");
-  } else {
-    showSucces(username);
-  }
-  if (email.value === "") {
-    showError(email, "email is required");
-  } else if (!isValidEmail(email.value)) {
-    showError(email, "Email is not valid");
-  } else {
-    showSucces(email);
-  }
+  // if (username.value === "") {
+  //   showError(username, "username is required");
+  // } else {
+  //   showSucces(username);
+  // }
+  // if (email.value === "") {
+  //   showError(email, "email is required");
+  // } else if (!isValidEmail(email.value)) {
+  //   showError(email, "Email is not valid");
+  // } else {
+  //   showSucces(email);
+  // }
 });
