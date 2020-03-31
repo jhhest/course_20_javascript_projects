@@ -45,3 +45,5 @@ https://www.udemy.com/course/web-projects-with-vanilla-javascript/?couponCode=TR
 18. New Year Countdown
 19. Sortable List
 20. Speak Number
+
+The original code of the course can be found at [vanillawebprojects repository](https://github.com/bradtraversy/vanillawebprojects)
